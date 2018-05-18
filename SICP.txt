@@ -1,0 +1,119 @@
+SICP
+  Substitution Model
+    Provides a mental framework not a description of how the interpreter works
+    Lisp uses application order, partly to minimize repeated expression evaluation
+    Applicative-order versus normal-order evaluation
+  Normal Order
+    fully expand the then reduce
+  Applicative Order
+    evaluates the arguments then apply
+  Tree accumulation in evaluation
+  Environment
+    determines the value of a name
+  Exceptions to evaluation are called special form
+    I.e. define is not a combination, and/or do not necessarily evaluate all their arguments
+    Syntactic Sugar are convenient surface structures for things that be written in a more uniform way.
+
+
+  Procedures
+    Specify a value that is determined by one or more parameters
+    Difference from mathematical functions
+      MUST be effective
+      Properties of things versis describing how to do things
+      Declarative and imperative knowledge
+      Mathematics are usually concerned with declarative (what is) descriptions
+      CS are usually concerned with imperative (how to) decriptions
+      To say that an answer produced by a program is "correct" is to make a declarative statement
+      Research
+        transition between imperative and declarative statements
+        very high-level langauges where one programs in declarative statements
+
+   Procedure design
+     Task-oriented sub procedures
+     Decomposition of reusable modules
+     Black-box / procedural abstraction
+       Not at the moment concerned with how the procedure computes its results
+       Considered when needed
+
+    The implementers choice of names for the procedure's formal parameters should not matter
+      The parameter names of a procedure must be local to the body of the procedure
+        else the parameters would depend on the values supplied by the user and thus the procedure no longer has a clear abstraction
+    The formal parameter of procedure is called a bound variable
+      the procedure binds its formal parameters
+      if a variable is not bound, it is free
+      Scope is the set of expressions for which a binding defines a name
+         The bound variables declared as formal parameters of the procedure have the body of the procedure as their scope
+      Changing a variable from free to bound, ie shadowing a previously defined name is capturing
+
+    Local bindings to abstract away the internals of a procedure
+      i.e. Let bindings in clojure or a namespace
+    Lexical scoping, Block Structures
+      dictates that free variables in a procedure are taken to refer to bindings made by enclosing procedure definitions
+      a name is bounded from the argument of the enclosing procedure it is called.
+        variables are looked up in which the procedure was defined
+      Variable operates as a free variable rather than an explicit bounded variable / parameter to any sub-procedures
+
+
+
+
+
+Chapter 1.2
+  Local evolution of a computational process
+    How an early stage of the process is built upon the previous stage
+
+  recursive process
+    chain of deferred operations
+  Linear recursive process, linear iterative process
+     the length of chain grows linearly with n
+
+  Iterative process
+    State can be summarized by a fixed number of state variables with a rule that describes how the state should be updated as the process moves from state to state and an optional end test that specifies condition under which the process should terminate. This program could be stopped and restarted with the last held state
+
+
+  Recursive process versus a recursive procedure
+    procedure is the syntactic fact that a procedure definition refers to itself
+      in a C style language consumes memory (stack) so iterative processes are best described by their looping constructs
+
+    Tail recursion
+     Can execute an iterative process in constant space even if the iterative process is described by a recursive procedure.
+
+
+  Tree Recursion
+    Be wary of redundant computation
+    The number of steps required by a tree-recursive process will be proportional to the number if nodes in a tree, while the space required will be proportional to the maximum depth
+
+Review of SICP 1.1
+  Abstraction - gives a name to an expression for later use
+  Expression
+  Evaluation - reduces an expression to a value using the substitution model, formalized in lambda calculus
+   Doesn't work with side effects
+   c++ is a side effect
+
+   Halting Problem
+
+   Call-by-value seems equivalent to applicative-order
+     evaluate every function arg once
+   Call-by-name seems equivalent to  normal-order
+     won't evaluate unused args
+
+     Both will get the same answer if the expression halts and has no side effects
+     CBV termination implies CBN termination. Not true in the opposite
+
+   Conditions
+     predicates and booleans
+
+
+   Blocks and Lexical Scope
+     Small functions
+     Which ones do the usee care about
+     Which are implementation details
+     How much namespace pollution
+
+   Tail Recursion
+     If a function calls itself as the last operation, it can reuse its stack frame
+     No buildup of intermediate results
+     Most JVM implementations limit user to 2000 stack frames
+----------------------------------------------------------------------------------------------------
+
+
+

@@ -1,0 +1,59 @@
+Purely Functiona Data Structures
+  Topics
+    Amortized and lazy evaluation with persistent data structures
+    Strict and lazy evaluation
+    Polymorphic recursion and higher-order, recursive modules
+
+
+Problem Statement
+  Data structures are largely implemented in an imperative manner
+  Only a fraction of data structures are suitable for functional languages
+
+
+  Historically Functional data structures are slower than their more traditional cousins
+    Improvements made in compilers
+    analyses and other optimizations
+    Persistent versus ephermal data structures
+    Some theorists have suggested that functional langs. may be 'fundamentally' less efficient than imperative ones
+
+  Strict Langs
+    Arguments to a function are evaluated before the body of the function
+    Easier to reason about asymptotic complexity
+    Can describe worst-case data structures, but not amortized
+
+  Lazy
+    Arguments are evaluated in a demand-driven fashion
+    they are initially passed in unevaluated form and are evaluated only when (and if!) the computation needs the results to continue
+    Once a given argument is evaluated, the value of that argument is cached so it be lookedup and not recomputed if needed in the future
+    Very difficult to reason about asymptotic complexity, tough to determine when a given subexpression will be evaluated
+    Often times programmers pretend the language is actually strict to make gross estimates of running time
+    Can describe amortized data strucutres, but not worst case
+
+ Solution Statement
+   Develop a suite of efficient data structures that are useful in their own right
+   Provide general approaches for designing and analyzing functional data structures
+     Techniques for reasoning about running time of lazy programs
+   Persistent Data structures
+     Demonstration of how memoization, in the form of lazy evaluation, allows compatibility with amortization and persistence
+   Show how to develop new persistent data structures
+   Show that strict and lazy evaluation are both useful algorithmically
+
+
+ Terminology
+   Abstraction - type and collection of functions on that type
+   Implementation - A concrete design realization of an abstraction
+   Instances - a version or an object, akin to CLojure values
+   Persistent identity - This issue mainly arises in the context of persistent data structures; when we speak of different versions of the same data structure, we mean that the different versions share a common persistent identity.
+   Operation - Application of functions
+   Operator - function supplied by an abstract data type
+
+
+STOPPED AT PG.19
+
+ Ch 2. Lazy Evaluation
+   The evaluation of a given expression is delayed, or suspended until its result is needed.
+   The first time a suspended expression is evaluated, the result is memoized (cached) to avoid recomputation
+
+
+
+

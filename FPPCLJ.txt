@@ -1,0 +1,93 @@
+Functional Programming Principles in Clojure
+
+
+Paradigms
+ distinct concepts or thought processes
+
+Imperative
+  Modifying state
+  using assignment
+  control structures
+
+Von Neumann
+  Processor
+    bus between the two
+    32bit - 64bit
+  Memory
+
+
+  Memory Cells = mutable variables
+  variable dereferences = load instructions
+  variable assignme = store instructions
+  Control Structures = jumps /loops
+
+
+  Problem: Scaling up. How can we avoid conceptualizing programs/data structures word by word (John Backus)
+  Pure imperative programming is limited by "Von Neumann bottleneck"
+
+  Need techniques for defining high level abstractions such as collections, documents, shapes, strings, polynomials
+
+
+Theory
+  One or more data types
+  operations on these types
+  law that decribe values on types
+  No mutation
+    No mutation operator in mathematics
+    Would destroy theories
+
+  Hence
+    Avoid mutation
+    Abstract and compose functins
+
+Functional Programming
+  Restricted Sense
+    programming without mutable variables, assignments, loops, and other imperative controls structures
+   Wider
+     focus on functions
+       can be composed, produced, consumed
+   FP languages
+     Functions are first class
+
+   SmallTalk, Ruby, JS
+      Can be considered functional as they have 'blocks' that can be passed around
+
+   Adv.
+     Simpler reasoning principles
+     better modularity
+     parallelism for multicore and cloud computing
+
+Review of SICP 1.1
+  Abstraction - gives a name to an expression for later use
+  Expression
+  Evaluation - reduces an expression to a value using the substitution model, formalized in lambda calculus
+   Doesn't work with side effects
+   c++ is a side effect
+
+   Halting Problem
+
+   Call-by-value seems equivalent to applicative-order
+     evaluate every function arg once
+   Call-by-name seems equivalent to  normal-order
+     won't evaluate unused args
+
+     Both will get the same answer if the expression halts and has no side effects
+     CBV termination implies CBN termination. Not true in the opposite
+
+   Conditions
+     predicates and booleans
+
+
+   Blocks and Lexical Scope
+     Small functions
+     Which ones do the usee care about
+     Which are implementation details
+     How much namespace pollution
+
+   Tail Recursion
+     If a function calls itself as the last operation, it can reuse its stack frame
+     No buildup of intermediate results
+     Most JVM implementations limit user to 2000 stack frames
+
+
+
